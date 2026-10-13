@@ -6,13 +6,16 @@
 #ifndef __STEP_CHG_H__
 #define __STEP_CHG_H__
 
+#if defined(CONFIG_MACH_XIAOMI_SDM845)
+#define MAX_STEP_CHG_ENTRIES	5
+#else
 #define MAX_STEP_CHG_ENTRIES	8
+#endif
 
 struct step_chg_jeita_param {
 	u32			psy_prop;
 	char			*prop_name;
-	int			rise_hys;
-	int			fall_hys;
+	int			hysteresis;
 	bool			use_bms;
 };
 

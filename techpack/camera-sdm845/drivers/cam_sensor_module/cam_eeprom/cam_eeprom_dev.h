@@ -35,8 +35,22 @@
 #define PROPERTY_MAXSIZE 32
 
 #define MSM_EEPROM_MEMORY_MAP_MAX_SIZE         80
+#if defined(CONFIG_MACH_XIAOMI_SDM845)
+#define MSM_EEPROM_MAX_MEM_MAP_CNT             36
+#else
 #define MSM_EEPROM_MAX_MEM_MAP_CNT             8
+#endif
 #define MSM_EEPROM_MEM_MAP_PROPERTIES_CNT      8
+
+#if defined(CONFIG_MACH_XIAOMI_SDM845)
+#ifdef CONFIG_USE_ROHM_BU64753
+#define EEPROM_MAP_DATA_CNT 60
+#define EEPROM_READ_START_INDEX 7856
+#define EEPROM_READ_END_INDEX 7915
+#define LITEON_VENDOR_ID 0x15
+#define BACK_CAMERA_LILTEON_EEPROM_ADDR 0xA0
+#endif
+#endif
 
 enum cam_eeprom_state {
 	CAM_EEPROM_INIT,
@@ -75,6 +89,9 @@ struct cam_eeprom_memory_map_t {
 	struct cam_eeprom_map_t page;
 	struct cam_eeprom_map_t pageen;
 	struct cam_eeprom_map_t poll;
+#if defined(CONFIG_MACH_XIAOMI_SDM845)
+	struct cam_eeprom_map_t delay;
+#endif
 	struct cam_eeprom_map_t mem;
 	uint32_t saddr;
 };
