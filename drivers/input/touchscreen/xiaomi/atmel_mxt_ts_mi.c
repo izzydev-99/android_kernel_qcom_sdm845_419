@@ -5582,7 +5582,7 @@ static int mxt_pinctrl_select(struct mxt_data *data, bool on)
 static int drm_notifier_cb(struct notifier_block *self,
 			unsigned long event, void *data)
 {
-	struct fb_event *evdata = data;
+	struct drm_notify_data *evdata = data;
 	int *blank = NULL;
 	struct mxt_data *mxt_data =
 		container_of(self, struct mxt_data, notif);
