@@ -678,7 +678,7 @@ static int goodix_fb_state_chg_callback(struct notifier_block *nb,
 		unsigned long val, void *data)
 {
 	struct gf_dev *gf_dev;
-	struct fb_event *evdata = data;
+	struct drm_notify_data *evdata = data;
 	unsigned int blank;
 	char temp[4] = { 0x0 };
 

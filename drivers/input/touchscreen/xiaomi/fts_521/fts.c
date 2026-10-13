@@ -4089,7 +4089,7 @@ static int fts_drm_state_chg_callback(struct notifier_block *nb,
 {
 	struct fts_ts_info *info =
 	    container_of(nb, struct fts_ts_info, notifier);
-	struct fb_event *evdata = data;
+	struct drm_notify_data *evdata = data;
 	unsigned int blank;
 
 	if (evdata && evdata->data && info) {
